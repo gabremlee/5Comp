@@ -457,11 +457,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-8\/12 {
   width: 66.666667%;
 }
-.w-6\/12 {
-  width: 50%;
-}
 .w-full {
   width: 100%;
+}
+.w-6\/12 {
+  width: 50%;
 }
 .items-center {
   align-items: center;
@@ -520,6 +520,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
+}
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 .py-3 {
   padding-top: 0.75rem;
