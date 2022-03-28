@@ -9,7 +9,10 @@ class PostController extends Controller
 {
     public function index()
     {
-        return view('post.index');
+        $posts = Post::get();
+        return view('post.index', [
+            'posts' => $posts,
+        ]);
     }
 
 
@@ -21,12 +24,14 @@ class PostController extends Controller
         ]);
 
 
-        Post::create([
-            'user_id' => auth()->user()->id,
-            'body' => $request->body,
+        // Post::create([
+        //     'user_id' => auth()->user()->id,
+        //     'body' => $request->body,
 
-        ]);
+        // ]);
+
+        $request->user()->posts()->create($request->only('body'));
         
-        
+        return back();
     }
 }

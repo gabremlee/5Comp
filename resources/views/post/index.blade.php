@@ -3,7 +3,7 @@
 @section('content')
         <div class="flex justify-center">
             <div class="w-8/12 bg-white p-6 rounded-lg">
-                <form action=" {{ route('posts') }}" method="post">
+                <form action=" {{ route('posts') }}" method="post" class="mb-4">
                     @csrf
                     <div class="mb-4">
                         <label for="body" class="sr-only">Body</label>
@@ -20,9 +20,21 @@
 
                     <div>
                         <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded
-                        font-medium">Post</button>
+                        font-medium justify-content-center">Post</button>
                     </div>
                 </form>
+
+                @if ($posts->count())
+                    @foreach ($posts as $post )
+                        <div class="mb-4">
+                            <a href="" class="font-bold">{{ $post->user->name }}</a> <span class="text-gray-600 text-sm">{{ $post->created_at }}</span>
+                            {{-- {{ $post->body }} --}}
+                            <p class="mb-2">{{ $post->body }}</p>
+                        </div>
+                    @endforeach
+                @else
+                    <p>There are no post</p>
+                @endif
             </div>
         </div>
 @endsection
